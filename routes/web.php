@@ -19,7 +19,7 @@ Route::get('/', 'FrontController@index');
 Route::get('/news', 'FrontController@news');
 Route::get('/news_info/{news_id}', 'FrontController@news_info');
 Route::get('/contact_us', 'FrontController@contact_us');
-
+Route::post('/contact_us_table', 'FrontController@contact_us_table');
 
 Auth::routes();
 

@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+<a class="btn btn-info mb-3" href="">新增資料</a>
 <table id="example" class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr>

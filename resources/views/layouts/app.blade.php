@@ -32,7 +32,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        @yield('name')
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin/news">管理最新消息</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

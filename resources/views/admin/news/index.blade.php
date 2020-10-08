@@ -25,7 +25,7 @@
                 <td>{{$news->created_at}}</td>
                 <td>
                     <a href="/admin/news/edit/{{$news->id}}" class="btn btn-sm btn-secondary">編輯</a>
-                    <a href="" class="btn btn-sm btn btn-danger">刪除</a>
+                    <button data-newsid="{{$news->id}}" class="btn btn-sm btn btn-danger btn-del">刪除</button>
                 </td>
             </tr>
         @endforeach
@@ -39,6 +39,12 @@
     <script>
         $(document).ready(function() {
             $('#example').DataTable();
+            $('#example').on("click",".btn-del",function(){
+                var r=confirm("確認是否刪除");
+                if(r==true){
+                    window.location.href=`/admin/news/destroy/${this.dataset.newsid}`;
+                }
+            });
         } );
     </script>
 @endsection

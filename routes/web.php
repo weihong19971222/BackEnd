@@ -31,5 +31,5 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::post('news/store','NewsController@store');
     Route::get('news/edit/{news_id}','NewsController@edit');
     Route::post('news/update/{news_id}','NewsController@update');
-    Route::get('news/destory/{news_id}','NewsController@destory');
+    Route::get('news/destroy/{news_id}','NewsController@destroy');
 });

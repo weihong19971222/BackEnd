@@ -117,7 +117,12 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $news_list=News::find($id);
+        $old_image = $news_list->img_url;
+        File::delete(public_path().$old_image);
+
+        News::destroy($id);
+        return redirect('admin/news');
     }
     private function fileUpload($file,$dir){
         //防呆：資料夾不存在時將會自動建立資料夾，避免錯誤

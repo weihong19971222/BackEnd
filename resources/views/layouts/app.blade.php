@@ -33,7 +33,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="admin/news">管理最新消息</a>
+                            <a class="nav-link" href="/admin/news">管理最新消息</a>
                         </li>
                     </ul>
 

@@ -9,8 +9,13 @@
 <table id="example" class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
-            <th>品名</th>
-            <th>圖片</th>
+            <th>產品名稱</th>
+            <th>產品圖片</th>
+            <th>價格</th>
+            <th>產品內容</th>
+            <th>產品內容圖片</th>
+            <th>上架日期</th>
+            <th>產品分類</th>
             <th>created_at</th>
             <th>功能</th>
         </tr>
@@ -18,8 +23,13 @@
     <tbody>
         @foreach ($news_list as $news)
             <tr>
-                <td>{{$news->title}}</td>
-                <td><img height="150px" src="{{$news->img_url}}" alt=""></td>
+                <td>{{$news->name}}</td>
+                <td><img height="150px" src="{{$news->product_image}}" alt=""></td>
+                <td>{{$news->price}}</td>
+                <td>{{$news->info}}</td>
+                <td><img height="150px" src="{{$news->info_image}}" alt=""></td>
+                <td>{{$news->date}}</td>
+                <td>{{$news->type_id}}</td>
                 <td>{{$news->created_at}}</td>
                 <td>
                     <a href="/admin/product/edit/{{$news->id}}" class="btn btn-sm btn-secondary">編輯</a>

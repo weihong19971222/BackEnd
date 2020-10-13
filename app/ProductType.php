@@ -11,6 +11,6 @@ class ProductType extends Model
         'type_name', 'sort',
     ];
     public function product_type(){
-        return $this->hasMany('App\Product');
+        return $this->hasMany('App\Products','type_id');
     }
 }

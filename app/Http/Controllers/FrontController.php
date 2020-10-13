@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Place;
-
+use App\Products;
+use App\ProductType;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -36,6 +37,14 @@ class FrontController extends Controller
         Place::create($request->all());
         return '成功';
     }
-
+    public function products(){
+        $product_lists=ProductType::with('product_type')->get();
+        // dd($product_list);
+        return view('front/products',compact('product_lists'));
+    }
+    public function products_info($products_id){
+        $products_list=products::find($products_id);
+        return view('front/product_info', compact('products_list'));
+    }
 
 }

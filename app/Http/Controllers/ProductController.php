@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Products;
+use App\ProductType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -27,7 +28,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin/product/create');
+        $ProductType_list=ProductType::all();
+        return view('admin/product/create',compact('ProductType_list'));
     }
 
     /**
@@ -39,10 +41,10 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request_data=$request->all();
-        if($request->hasFile('img_url')) {
-            $file = $request->file('img_url');
+        if($request->hasFile('product_image')) {
+            $file = $request->file('product_image');
             $path = $this->fileUpload($file,'Product');
-            $request_data['img_url'] = $path;
+            $request_data['product_image'] = $path;
         }
         Products::create($request_data);
         return redirect('admin/product');

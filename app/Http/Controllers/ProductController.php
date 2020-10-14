@@ -69,8 +69,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $news_list=Products::find($id);
-        return view('admin/product/edit', compact('news_list'));
+        $news_list=Products::with('product')->find($id);
+        $news_lists=ProductType::with('product_type')->get();
+        return view('admin/product/edit', compact('news_list','news_lists'));
     }
 
     /**
@@ -84,12 +85,12 @@ class ProductController extends Controller
     {
         $news_list=Products::find($id);
         $request_data=$request->all();
-        if($request->hasFile('img_url')) {
-            $old_image = $news_list->img_url;
+        if($request->hasFile('product_image')) {
+            $old_image = $news_list->product_image;
             File::delete(public_path().$old_image);
-            $file = $request->file('img_url');
+            $file = $request->file('product_image');
             $path = $this->fileUpload($file,'News');
-            $request_data['img_url'] = $path;
+            $request_data['product_image'] = $path;
         }
         $news_list->update($request_data);
         return redirect('admin/product');

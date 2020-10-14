@@ -6,6 +6,13 @@
 
 @section('section')
 <section class="news">
+    <div>
+        <ul>
+            @foreach ($product_lists as $product_list)
+                <li><a href="/products_type/{{$product_list->id}}">{{$product_list->type_name}}</a></li>
+            @endforeach
+        </ul>
+    </div>
     <div class="container">
         <h2 class="news_title">產品</h2>
             @foreach ($product_lists as $product_list)

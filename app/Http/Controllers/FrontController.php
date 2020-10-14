@@ -39,8 +39,11 @@ class FrontController extends Controller
     }
     public function products(){
         $product_lists=ProductType::with('product_type')->get();
-        // dd($product_list);
         return view('front/products',compact('product_lists'));
+    }
+    public function products_type($products_type_id){
+        $product_lists=ProductType::with('product_type')->find($products_type_id);
+        return view('front/products_type',compact('product_lists'));
     }
     public function products_info($products_id){
         $products_list=products::find($products_id);

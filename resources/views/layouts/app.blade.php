@@ -38,6 +38,9 @@
                         <li>
                             <a class="nav-link" href="/admin/product">管理產品</a>
                         </li>
+                        <li>
+                            <a class="nav-link" href="/admin/product_type">管理產品類別</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

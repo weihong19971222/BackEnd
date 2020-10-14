@@ -13,7 +13,6 @@
             <th>產品圖片</th>
             <th>價格</th>
             <th>產品內容</th>
-            <th>產品內容圖片</th>
             <th>上架日期</th>
             <th>產品分類</th>
             <th>created_at</th>
@@ -27,9 +26,8 @@
                 <td><img height="150px" src="{{$news->product_image}}" alt=""></td>
                 <td>{{$news->price}}</td>
                 <td>{{$news->info}}</td>
-                <td><img height="150px" src="{{$news->info_image}}" alt=""></td>
                 <td>{{$news->date}}</td>
-                <td>{{$news->type_id}}</td>
+                <td>{{$news->product->type_name}}</td>
                 <td>{{$news->created_at}}</td>
                 <td>
                     <a href="/admin/product/edit/{{$news->id}}" class="btn btn-sm btn-secondary">編輯</a>

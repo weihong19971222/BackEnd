@@ -19,6 +19,7 @@
 Route::get('/', 'FrontController@index');
 Route::get('/news', 'FrontController@news');
 Route::get('/products', 'FrontController@products');
+Route::get('/products_type/{products_type_id}', 'FrontController@products_type');
 Route::get('/product_info/{products_id}', 'FrontController@products_info');
 Route::get('/news_info/{news_id}', 'FrontController@news_info');
 Route::get('/contact_us', 'FrontController@contact_us');
@@ -43,4 +44,6 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('product/edit/{news_id}','ProductController@edit');
     Route::post('product/update/{news_id}','ProductController@update');
     Route::get('product/destroy/{news_id}','ProductController@destroy');
+    
+    Route::resource('product_type','ProductTypeController');
 });

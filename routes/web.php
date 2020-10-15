@@ -16,6 +16,8 @@
 // });
 
 
+
+
 Route::get('/', 'FrontController@index');
 Route::get('/news', 'FrontController@news');
 Route::get('/products', 'FrontController@products');
@@ -35,6 +37,8 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('news/edit/{news_id}','NewsController@edit');
     Route::post('news/update/{news_id}','NewsController@update');
     Route::get('news/destroy/{news_id}','NewsController@destroy');
+    Route::post('/ajax_upload_img','AdminController@ajax_upload_img');
+Route::post('/ajax_delete_img','AdminController@ajax_delete_img');
 });
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
@@ -44,6 +48,6 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('product/edit/{news_id}','ProductController@edit');
     Route::post('product/update/{news_id}','ProductController@update');
     Route::get('product/destroy/{news_id}','ProductController@destroy');
-    
+
     Route::resource('product_type','ProductTypeController');
 });

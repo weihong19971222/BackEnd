@@ -45,7 +45,6 @@ class NewsController extends Controller
 
         // $imageName = time().'.'.$request->img_url->getClientOriginalExtension();
         // $request->img_url->move(public_path('/uploaded_images'), $imageName);
-
         if($request->hasFile('img_url')) {
             $file = $request->file('img_url');
             $path = $this->fileUpload($file,'News');

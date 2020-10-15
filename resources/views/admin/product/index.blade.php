@@ -21,6 +21,7 @@
     </thead>
     <tbody>
         @foreach ($news_list as $news)
+
             <tr>
                 <td>{{$news->name}}</td>
                 <td><img height="150px" src="{{$news->product_image}}" alt=""></td>

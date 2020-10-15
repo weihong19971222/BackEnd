@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ProductImages;
 use App\Products;
 use App\ProductType;
 use Illuminate\Http\Request;
@@ -40,14 +41,28 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
         $request_data=$request->all();
         if($request->hasFile('product_image')) {
             $file = $request->file('product_image');
             $path = $this->fileUpload($file,'Product');
             $request_data['product_image'] = $path;
         }
-        Products::create($request_data);
+        $product=Products::create($request_data);
+        $product_id=$product->id;
+        $files = $request->file('info_image');
+        if($request->hasFile('info_image')){
+            foreach($files as $file){
+                $path = $this->fileUpload($file,'Product');
+                ProductImages::create([
+                    'img_url'=>$path,
+                    'product_id'=>$product_id
+                ]);
+            }
+        }
+
         return redirect('admin/product');
+
     }
 
     /**
@@ -69,6 +84,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
+        dd(Products::find($id)->products_image);
         $news_list=Products::with('product')->find($id);
         $news_lists=ProductType::with('product_type')->get();
         return view('admin/product/edit', compact('news_list','news_lists'));

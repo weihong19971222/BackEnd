@@ -48,10 +48,14 @@ class ProductController extends Controller
             $path = $this->fileUpload($file,'Product');
             $request_data['product_image'] = $path;
         }
+
         $product=Products::create($request_data);
+        // dd($product);
         $product_id=$product->id;
-        $files = $request->file('info_image');
-        if($request->hasFile('info_image')){
+        // dd($product_id);
+
+        if($request->hasFile('info_image2')){
+            $files = $request->file('info_image2');
             foreach($files as $file){
                 $path = $this->fileUpload($file,'Product');
                 ProductImages::create([

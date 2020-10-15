@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
         <label for="images">上傳多張產品內容圖片</label>
-        <input name="info_image[]" type="file" class="form-control-file" id="images" multiple>
+        <input name="info_image2[]" type="file" class="form-control-file" id="images" multiple>
     </div>
     <div class="form-group">
         <label for="title">上架日期</label>

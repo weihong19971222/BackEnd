@@ -89,7 +89,10 @@ class ProductTypeController extends Controller
     public function destroy($id)
     {
         ProductType::destroy($id);
-        Products::where('type_id','$id');
+        $p=Products::where('type_id',$id)->first()->id;
+        // dd($p);
+        Products::destroy($p);
+
         return redirect('admin/product_type');
     }
 }
